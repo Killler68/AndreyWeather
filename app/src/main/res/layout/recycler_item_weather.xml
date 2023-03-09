@@ -9,94 +9,84 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_days"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#F3F5F8"
         app:cardCornerRadius="16dp"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/text_days"
-                android:layout_width="0dp"
-                android:layout_height="28dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/manrope_medium"
-                tools:text="13 августа, "
-                android:textColor="#2A2D33"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/text_days"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:textColor="#2A2D33"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/card_view_days"
+        app:layout_constraintTop_toTopOf="@+id/card_view_days"
+        tools:text="13 августа" />
 
 
-            <TextView
-                android:id="@+id/text_days_temp_1"
-                android:layout_width="0dp"
-                android:layout_height="28dp"
-                android:layout_marginStart="218dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="99dp"
-                android:fontFamily="@font/manrope_extrabold"
-                tools:text="25° "
-                android:textColor="#2A2D33"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/text_days_temp_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="#2A2D33"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_days"
+        app:layout_constraintEnd_toStartOf="@+id/text_days_temp_2"
+        app:layout_constraintTop_toTopOf="@+id/text_days"
+        tools:text="25° " />
 
-            <TextView
-                android:id="@+id/text_days_temp_2"
-                android:layout_width="0dp"
-                android:layout_height="28dp"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/manrope_extrabold"
-                tools:text="29°"
-                android:textColor="#8F96A1"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@+id/text_days_temp_1"
-                app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/text_days_temp_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="#8F96A1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_days"
+        app:layout_constraintEnd_toStartOf="@+id/image_days"
+        app:layout_constraintTop_toTopOf="@+id/text_days"
+        tools:text="29°" />
 
-            <ImageView
-                android:id="@+id/image_days"
-                android:layout_width="30dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/text_days_temp_2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/sun" />
+    <ImageView
+        android:id="@+id/image_days"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_days"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_days"
+        app:srcCompat="@drawable/sun" />
 
-            <View
-                android:id="@+id/line"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="16dp"
-                android:background="#D9E0EA"
-                app:layout_constraintTop_toBottomOf="@+id/text_days_temp_1" />
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#D9E0EA"
+        app:layout_constraintTop_toBottomOf="@+id/text_days_temp_1" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view_times"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="13dp"
-                android:orientation="horizontal"
-                android:overScrollMode="never"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/line"
-                tools:listitem="@layout/recycler_item_weather_time_over" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_times"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line"
+        tools:listitem="@layout/recycler_item_weather_time_over" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
