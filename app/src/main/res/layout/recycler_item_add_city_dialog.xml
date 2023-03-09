@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="4dp"
-        android:fontFamily="@font/manrope_medium"
         android:gravity="center"
         android:paddingHorizontal="8dp"
         android:paddingTop="4dp"
