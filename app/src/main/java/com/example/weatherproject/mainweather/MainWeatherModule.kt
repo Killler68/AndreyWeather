@@ -6,10 +6,10 @@ import com.example.weatherproject.common.network.NetworkModule
 import com.example.weatherproject.mainweather.repository.MainWeatherPreviewRepository
 import com.example.weatherproject.mainweather.repository.MainWeatherRepository
 import com.example.weatherproject.mainweather.repository.MainWeatherRepositoryImpl
-import com.example.weatherproject.mainweather.usecase.GetWeatherDataUseCase
-import com.example.weatherproject.mainweather.usecase.GetWeatherDataUseCaseImpl
-import com.example.weatherproject.mainweather.usecase.GetWeatherPreviewDataUseCase
-import com.example.weatherproject.mainweather.usecase.GetWeatherPreviewDataUseCaseImpl
+import com.example.weatherproject.mainweather.router.MainWeatherRouterImpl
+import com.example.weatherproject.mainweather.usecase.*
+import com.example.weatherproject.mainweather.viewmodel.AddCityNavigatorUseCase
+import com.example.weatherproject.mainweather.viewmodel.ChangeCityDialogNavigatorUseCase
 import com.example.weatherproject.mainweather.viewmodel.MainWeatherViewModel
 import dagger.Module
 import dagger.Provides
@@ -43,6 +43,17 @@ class MainWeatherModule {
             GetWeatherPreviewDataUseCase =
         GetWeatherPreviewDataUseCaseImpl(mainWeatherPreviewRepository)
 
+    @Provides
+    fun provideMainWeatherRouter(): MainWeatherRouter = MainWeatherRouterImpl()
+
+    @Provides
+    fun provideChangeCityDialogNavigatorUseCase(router: MainWeatherRouter):
+            ChangeCityDialogNavigatorUseCase =
+        ChangeCityDialogNavigatorUseCaseImpl(router)
+
+    @Provides
+    fun provideAddCityNavigatorUseCase(router: MainWeatherRouter): AddCityNavigatorUseCase =
+        AddCityNavigatorUseCaseImpl(router)
 
     @Provides
     @IntoMap
@@ -50,12 +61,14 @@ class MainWeatherModule {
     fun getViewModelMainWeather(
         getWeatherDataUseCase: GetWeatherDataUseCase,
         getWeatherPreviewDataUseCase: GetWeatherPreviewDataUseCase,
-        weatherEventBus: BehaviorSubject<Int>
+        navigateToChangeCityDialogUseCase: ChangeCityDialogNavigatorUseCase,
+        navigateToAddCityUseCase: AddCityNavigatorUseCase
     ): ViewModel {
         return MainWeatherViewModel(
             getWeatherDataUseCase,
             getWeatherPreviewDataUseCase,
-            weatherEventBus
+            navigateToChangeCityDialogUseCase,
+            navigateToAddCityUseCase
         )
     }
 }
