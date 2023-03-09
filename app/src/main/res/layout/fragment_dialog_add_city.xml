@@ -26,17 +26,18 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/white"
             app:cardCornerRadius="12dp"
+            app:cardElevation="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="311dp"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp">
 
                 <ImageView
                     android:id="@+id/search_add_city_dialog"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
@@ -48,7 +49,7 @@
 
                 <EditText
                     android:id="@+id/edit_add_city_dialog"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="8dp"
@@ -64,14 +65,16 @@
 
                 <ImageView
                     android:id="@+id/delete_add_city_dialog"
-                    android:layout_width="wrap_content"
+                    android:layout_width="22dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="281dp"
                     android:layout_marginTop="9dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="9dp"
                     android:src="@drawable/ic_plus"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -81,7 +84,6 @@
             android:id="@+id/recycler_view_add_city_dialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -91,7 +93,8 @@
 
         <Button
             android:id="@+id/btn_cancel_add_city_dialog"
-            android:layout_width="0dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="151dp"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
@@ -100,15 +103,16 @@
             android:text="Отменить"
             android:textColor="#707782"
             android:textSize="14sp"
-            android:layout_marginEnd="9dp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintEnd_toStartOf="@id/btn_add_city_dialog"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_add_city_dialog" />
 
         <Button
             android:id="@+id/btn_add_city_dialog"
-            android:layout_width="0dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="151dp"
             android:layout_height="40dp"
+            android:layout_marginStart="9dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/style_btn_add_city"
@@ -116,9 +120,8 @@
             android:text="Добавить"
             android:textColor="@color/white"
             android:textSize="14sp"
-            android:layout_marginStart="9dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintStart_toEndOf="@+id/btn_cancel_add_city_dialog"
             app:layout_constraintTop_toBottomOf="@id/recycler_view_add_city_dialog" />
 
         <androidx.constraintlayout.widget.Guideline
