@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.weatherproject.R
 import com.example.weatherproject.common.context.toast
 import com.example.weatherproject.common.fragment.getViewModelFactory
-import com.example.weatherproject.common.navigation.navigate
+import com.example.weatherproject.common.navigation.NavCommand
 import com.example.weatherproject.databinding.FragmentMainWeatherBinding
 import com.example.weatherproject.mainweather.item.WeatherItem
 import com.example.weatherproject.mainweather.model.WeatherData
@@ -55,6 +56,7 @@ class FragmentMainWeather : Fragment() {
             resultWeatherPreview.observe(viewLifecycleOwner, ::onDataLoadedPreview)
             loadWeatherPreview()
             internetError.observe(viewLifecycleOwner) { toast(it) }
+            navCommand.observe(viewLifecycleOwner, ::onDataLoadedNavigate)
         }
     }
 
@@ -77,12 +79,16 @@ class FragmentMainWeather : Fragment() {
             .into(binding.imageWeatherPreview)
     }
 
+    private fun onDataLoadedNavigate(navCommand: NavCommand) {
+        findNavController().navigate(navCommand.action, navCommand.command)
+    }
+
     private fun setupListeners() {
         binding.btnGeolocation.setOnClickListener {
-            navigate(R.id.main_weather_to_weather_add_city)
+            viewModel.toAddCity()
         }
         binding.btnSearch.setOnClickListener {
-            navigate(R.id.main_weather_to_dialog_change_city)
+            viewModel.toChangeCity()
         }
     }
 

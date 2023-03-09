@@ -3,18 +3,19 @@ package com.example.weatherproject.mainweather.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.weatherproject.common.navigation.NavCommand
 import com.example.weatherproject.common.rx.plusAssign
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.example.weatherproject.mainweather.model.WeatherPreviewData
 import com.example.weatherproject.mainweather.usecase.GetWeatherDataUseCase
 import com.example.weatherproject.mainweather.usecase.GetWeatherPreviewDataUseCase
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.subjects.BehaviorSubject
 
 class MainWeatherViewModel(
     private val getWeatherDataUseCase: GetWeatherDataUseCase,
     private val getWeatherPreviewDataUseCase: GetWeatherPreviewDataUseCase,
-    private val weatherEventBus: BehaviorSubject<Int>
+    private val navigateToChangeCityDialog: ChangeCityDialogNavigatorUseCase,
+    private val navigateToAddCity: AddCityNavigatorUseCase
 ) : ViewModel() {
 
     private val _resultWeatherWeek: MutableLiveData<List<WeatherData>> = MutableLiveData()
@@ -25,6 +26,9 @@ class MainWeatherViewModel(
 
     private val _internetError: MutableLiveData<String> = MutableLiveData()
     val internetError: LiveData<String> get() = _internetError
+
+    private val _navCommand: MutableLiveData<NavCommand> = MutableLiveData()
+    val navCommand: LiveData<NavCommand> get() = _navCommand
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -45,6 +49,10 @@ class MainWeatherViewModel(
                 _internetError.postValue(it.message)
             })
     }
+
+    fun toChangeCity() = _navCommand.postValue(navigateToChangeCityDialog())
+
+    fun toAddCity() = _navCommand.postValue(navigateToAddCity())
 
     override fun onCleared() {
         super.onCleared()
