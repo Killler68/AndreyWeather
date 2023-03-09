@@ -9,7 +9,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_days"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="220dp"
         android:layout_marginTop="10dp"
         android:backgroundTint="#F3F5F8"
         app:cardCornerRadius="16dp"
@@ -78,7 +78,8 @@
         android:id="@+id/recycler_view_times"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:overScrollMode="never"
