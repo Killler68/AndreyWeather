@@ -4,7 +4,7 @@
     android:id="@+id/background_item_add_city_dialog"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
+    android:layout_marginStart="6dp"
     android:backgroundTint="#F3F5F8"
     app:cardCornerRadius="8dp"
     app:cardElevation="0dp">
@@ -20,7 +20,6 @@
         android:paddingBottom="4dp"
         android:text="Санкт-Петербург"
         android:textColor="#2A2D33"
-        android:textSize="14sp" />
-
+        android:textSize="12sp" />
 
 </androidx.cardview.widget.CardView>
