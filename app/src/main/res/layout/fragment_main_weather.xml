@@ -21,40 +21,43 @@
         android:id="@+id/btn"
         android:layout_width="0dp"
         android:layout_height="32dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="10dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_theme_change"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_geolocation"
         app:layout_constraintEnd_toStartOf="@+id/btn_search"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/btn_geolocation" />
 
     <ImageView
         android:id="@+id/btn_search"
         android:layout_width="0dp"
         android:layout_height="32dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_find_city"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_geolocation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/btn_geolocation" />
 
     <TextView
         android:id="@+id/text_city"
         android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:ellipsize="end"
         android:gravity="center"
+        android:maxLines="1"
         android:text="Санкт-Петербург"
         android:textColor="#2A2D33"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_geolocation"
+        app:layout_constraintEnd_toStartOf="@+id/btn"
+        app:layout_constraintStart_toEndOf="@+id/btn_geolocation"
+        app:layout_constraintTop_toTopOf="@+id/btn_geolocation" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_preview"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="300dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#1E90FF"
@@ -62,70 +65,66 @@
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_geolocation">
+        app:layout_constraintTop_toBottomOf="@+id/btn_geolocation" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/text_preview_weather"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Сегодня, 12 августа, чт"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/card_view_preview"
+        app:layout_constraintStart_toStartOf="@+id/card_view_preview"
+        app:layout_constraintTop_toTopOf="@+id/card_view_preview" />
 
-            <TextView
-                android:id="@+id/text_preview_weather"
-                android:layout_width="0dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="Сегодня, 12 августа, чт"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/image_weather_preview"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/card_view_preview"
+        app:layout_constraintStart_toStartOf="@+id/card_view_preview"
+        app:layout_constraintTop_toBottomOf="@+id/text_preview_weather"
+        app:srcCompat="@drawable/sun" />
 
-            <ImageView
-                android:id="@+id/image_weather_preview"
-                android:layout_width="0dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_preview_weather"
-                app:srcCompat="@drawable/sun" />
+    <TextView
+        android:id="@+id/text_temp_preview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="30°"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="@+id/card_view_preview"
+        app:layout_constraintStart_toStartOf="@+id/card_view_preview"
+        app:layout_constraintTop_toBottomOf="@+id/image_weather_preview" />
 
-            <TextView
-                android:id="@+id/text_temp_preview"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="2dp"
-                android:gravity="center"
-                android:text="30°"
-                android:textColor="@color/white"
-                android:textSize="48sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_weather_preview" />
-
-            <TextView
-                android:id="@+id/text_feeling_temp_preview"
-                android:layout_width="0dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="2dp"
-                android:gravity="center"
-                android:text="Ясно, ощущается, как  32°"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_temp_preview" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/text_feeling_temp_preview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Ясно, ощущается, как  32°"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/card_view_preview"
+        app:layout_constraintStart_toStartOf="@+id/card_view_preview"
+        app:layout_constraintTop_toBottomOf="@+id/text_temp_preview" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_weather"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:overScrollMode="never"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
