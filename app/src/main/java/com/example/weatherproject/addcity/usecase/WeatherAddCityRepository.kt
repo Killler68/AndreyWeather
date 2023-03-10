@@ -1,4 +1,4 @@
-package com.example.weatherproject.addcity.repository
+package com.example.weatherproject.addcity.usecase
 
 import com.example.weatherproject.addcity.model.WeatherAddCityData
 

@@ -1,14 +1,15 @@
 package com.example.weatherproject.addcity
 
 import androidx.lifecycle.ViewModel
-import com.example.weatherproject.addcity.repository.WeatherAddCityRepository
+import com.example.weatherproject.addcity.usecase.WeatherAddCityRepository
 import com.example.weatherproject.addcity.repository.WeatherAddCityRepositoryImpl
 import com.example.weatherproject.addcity.router.AddCityRouterImpl
 import com.example.weatherproject.addcity.usecase.AddCityDialogNavigatorUseCaseImpl
 import com.example.weatherproject.addcity.usecase.AddCityRouter
-import com.example.weatherproject.addcity.usecase.GetWeatherAddCityUseCase
+import com.example.weatherproject.addcity.usecase.GetWeatherAddCityUseCaseImpl
 import com.example.weatherproject.addcity.usecase.MainWeatherNavigatorUseCaseImpl
 import com.example.weatherproject.addcity.viewmodel.AddCityDialogNavigatorUseCase
+import com.example.weatherproject.addcity.viewmodel.GetWeatherAddCityUseCase
 import com.example.weatherproject.addcity.viewmodel.MainWeatherNavigatorUseCase
 import com.example.weatherproject.addcity.viewmodel.WeatherAddCityViewModel
 import dagger.Module
@@ -24,7 +25,11 @@ class WeatherAddCityModule {
 
     @Provides
     fun provideUseCaseAddCity(weatherAddCityRepository: WeatherAddCityRepository):
-            GetWeatherAddCityUseCase = GetWeatherAddCityUseCase(weatherAddCityRepository)
+            GetWeatherAddCityUseCaseImpl = GetWeatherAddCityUseCaseImpl(weatherAddCityRepository)
+
+    @Provides
+    fun provideGetWeatherAddCityUseCase(WeatherAddCityRepository: WeatherAddCityRepository): GetWeatherAddCityUseCase =
+        GetWeatherAddCityUseCaseImpl(WeatherAddCityRepository)
 
     @Provides
     fun provideAddCityRouter(): AddCityRouter = AddCityRouterImpl()
@@ -42,12 +47,12 @@ class WeatherAddCityModule {
     @IntoMap
     @ClassKey(WeatherAddCityViewModel::class)
     fun getViewModelWeatherAddCity(
-        getWeatherAddCityUseCase: GetWeatherAddCityUseCase,
+        getWeatherAddCityUseCaseImpl: GetWeatherAddCityUseCase,
         navigateToAddCityDialogUseCase: AddCityDialogNavigatorUseCase,
         navigateToMainWeatherUseCase: MainWeatherNavigatorUseCase
     ): ViewModel {
         return WeatherAddCityViewModel(
-            getWeatherAddCityUseCase,
+            getWeatherAddCityUseCaseImpl,
             navigateToAddCityDialogUseCase,
             navigateToMainWeatherUseCase
         )

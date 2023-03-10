@@ -1,11 +1,11 @@
 package com.example.weatherproject.addcity.repository
 
 import com.example.weatherproject.addcity.model.WeatherAddCityData
+import com.example.weatherproject.addcity.usecase.WeatherAddCityRepository
 
 class WeatherAddCityRepositoryImpl : WeatherAddCityRepository {
 
     override fun getWeatherAddCity(): List<WeatherAddCityData> = testAddCity
-
 }
 
 private val testAddCity = listOf(

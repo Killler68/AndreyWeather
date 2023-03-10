@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.weatherproject.addcity.model.WeatherAddCityData
-import com.example.weatherproject.addcity.usecase.GetWeatherAddCityUseCase
 import com.example.weatherproject.common.navigation.NavCommand
 
 class WeatherAddCityViewModel(
@@ -20,7 +19,7 @@ class WeatherAddCityViewModel(
     val navCommand: LiveData<NavCommand> get() = _navCommand
 
     fun loadWeatherAddCity() =
-        _resultWeatherAddCity.postValue(getWeatherAddCityUseCase.executeWeatherAddCity())
+        _resultWeatherAddCity.postValue(getWeatherAddCityUseCase())
 
     fun toAddCityDialog() {
         _navCommand.postValue(navigateToAddCityDialog())
