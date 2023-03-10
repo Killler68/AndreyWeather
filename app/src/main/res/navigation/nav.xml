@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragmentMainWeather"
-        android:name="com.example.weatherproject.mainweather.FragmentMainWeather"
+        android:name="com.example.weatherproject.mainweather.MainWeatherFragment"
         android:label="fragment_main_weather"
         tools:layout="@layout/fragment_main_weather">
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <dialog
         android:id="@+id/fragmentDialogWeatherChangeCity"
-        android:name="com.example.weatherproject.mainweather.changecity.FragmentDialogWeatherChangeCity"
+        android:name="com.example.weatherproject.mainweather.changecity.ChangeCityDialogFragment"
         android:label="FragmentDialogWeatherChangeCity">
         <action
             android:id="@+id/dialog_change_city_to_main_weather"
@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/fragmentWeatherAddCity"
-        android:name="com.example.weatherproject.addcity.FragmentWeatherAddCity"
+        android:name="com.example.weatherproject.addcity.AddCityFragment"
         android:label="fragment_weather_add_city"
         tools:layout="@layout/fragment_weather_add_city">
 
@@ -41,7 +41,7 @@
     </fragment>
     <dialog
         android:id="@+id/fragmentDialogAddCity"
-        android:name="com.example.weatherproject.addcity.dialogaddcity.FragmentDialogAddCity"
+        android:name="com.example.weatherproject.addcity.addcitydialog.AddCityDialogFragment"
         android:label="FragmentDialogWeatherAddCity">
         <action
             android:id="@+id/dialog_add_city_to_weather_add_city"

@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.weatherproject.R
 import com.example.weatherproject.databinding.RecyclerItemWeatherBinding
-import com.example.weatherproject.mainweather.TIME_FORMAT
-import com.example.weatherproject.mainweather.dateFormatDays
-import com.example.weatherproject.mainweather.imageWeather
+import com.example.weatherproject.common.extensions.TIME_FORMAT
+import com.example.weatherproject.common.extensions.dateFormatDays
+import com.example.weatherproject.common.extensions.imageWeather
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.mikepenz.fastadapter.GenericFastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter

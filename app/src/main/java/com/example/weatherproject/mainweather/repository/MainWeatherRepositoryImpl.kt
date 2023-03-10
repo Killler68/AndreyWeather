@@ -3,6 +3,8 @@ package com.example.weatherproject.mainweather.repository
 import com.example.weatherproject.common.api.WeatherApi
 import com.example.weatherproject.mainweather.model.WeatherOverTimeData
 import com.example.weatherproject.mainweather.model.WeatherPreviewData
+import com.example.weatherproject.mainweather.usecase.MainWeatherPreviewRepository
+import com.example.weatherproject.mainweather.usecase.MainWeatherRepository
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

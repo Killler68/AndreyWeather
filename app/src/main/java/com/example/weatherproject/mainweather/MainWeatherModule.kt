@@ -3,14 +3,12 @@ package com.example.weatherproject.mainweather
 import androidx.lifecycle.ViewModel
 import com.example.weatherproject.common.api.WeatherApi
 import com.example.weatherproject.common.network.NetworkModule
-import com.example.weatherproject.mainweather.repository.MainWeatherPreviewRepository
-import com.example.weatherproject.mainweather.repository.MainWeatherRepository
+import com.example.weatherproject.mainweather.usecase.MainWeatherPreviewRepository
+import com.example.weatherproject.mainweather.usecase.MainWeatherRepository
 import com.example.weatherproject.mainweather.repository.MainWeatherRepositoryImpl
 import com.example.weatherproject.mainweather.router.MainWeatherRouterImpl
 import com.example.weatherproject.mainweather.usecase.*
-import com.example.weatherproject.mainweather.viewmodel.AddCityNavigatorUseCase
-import com.example.weatherproject.mainweather.viewmodel.ChangeCityDialogNavigatorUseCase
-import com.example.weatherproject.mainweather.viewmodel.MainWeatherViewModel
+import com.example.weatherproject.mainweather.viewmodel.*
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.ClassKey
@@ -35,13 +33,13 @@ class MainWeatherModule {
     fun weatherEventBus() = BehaviorSubject.create<Int>()
 
     @Provides
-    fun provideUseCase(mainWeatherRepository: MainWeatherRepository): GetWeatherDataUseCase =
-        GetWeatherDataUseCaseImpl(mainWeatherRepository)
+    fun provideUseCase(mainWeatherRepository: MainWeatherRepository): GetWeatherUseCase =
+        GetWeatherUseCaseImpl(mainWeatherRepository)
 
     @Provides
     fun providePreviewUseCase(mainWeatherPreviewRepository: MainWeatherPreviewRepository):
-            GetWeatherPreviewDataUseCase =
-        GetWeatherPreviewDataUseCaseImpl(mainWeatherPreviewRepository)
+            GetWeatherPreviewUseCase =
+        GetWeatherPreviewUseCaseImpl(mainWeatherPreviewRepository)
 
     @Provides
     fun provideMainWeatherRouter(): MainWeatherRouter = MainWeatherRouterImpl()
@@ -59,14 +57,14 @@ class MainWeatherModule {
     @IntoMap
     @ClassKey(MainWeatherViewModel::class)
     fun getViewModelMainWeather(
-        getWeatherDataUseCase: GetWeatherDataUseCase,
-        getWeatherPreviewDataUseCase: GetWeatherPreviewDataUseCase,
+        getWeatherUseCase: GetWeatherUseCase,
+        getWeatherPreviewUseCase: GetWeatherPreviewUseCase,
         navigateToChangeCityDialogUseCase: ChangeCityDialogNavigatorUseCase,
         navigateToAddCityUseCase: AddCityNavigatorUseCase
     ): ViewModel {
         return MainWeatherViewModel(
-            getWeatherDataUseCase,
-            getWeatherPreviewDataUseCase,
+            getWeatherUseCase,
+            getWeatherPreviewUseCase,
             navigateToChangeCityDialogUseCase,
             navigateToAddCityUseCase
         )

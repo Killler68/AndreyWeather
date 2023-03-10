@@ -10,7 +10,7 @@
     android:minHeight="180dp"
     app:cardCornerRadius="24dp"
     app:cardElevation="0dp"
-    tools:context=".addcity.dialogaddcity.FragmentDialogAddCity">
+    tools:context=".addcity.addcitydialog.AddCityDialogFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
