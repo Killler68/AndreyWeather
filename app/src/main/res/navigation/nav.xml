@@ -19,7 +19,7 @@
     </fragment>
     <dialog
         android:id="@+id/fragmentDialogWeatherChangeCity"
-        android:name="com.example.weatherproject.mainweather.changecity.FragmentDialogWeatherChangeCity"
+        android:name="com.example.weatherproject.mainweather.changecity.ChangeCityDialogFragment"
         android:label="FragmentDialogWeatherChangeCity">
         <action
             android:id="@+id/dialog_change_city_to_main_weather"

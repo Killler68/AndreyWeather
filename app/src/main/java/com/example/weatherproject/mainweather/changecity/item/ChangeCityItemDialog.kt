@@ -7,7 +7,7 @@ import com.example.weatherproject.addcity.dialogaddcity.model.AddCityDataDialog
 import com.example.weatherproject.databinding.RecyclerItemDialogWeatherChangeCityBinding
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 
-class DialogWeatherChangeCityItem(private val addCityDataDialog: AddCityDataDialog) :
+class ChangeCityItemDialog(private val addCityDataDialog: AddCityDataDialog) :
     AbstractBindingItem<RecyclerItemDialogWeatherChangeCityBinding>() {
 
     override fun bindView(binding: RecyclerItemDialogWeatherChangeCityBinding, payloads: List<Any>) {
