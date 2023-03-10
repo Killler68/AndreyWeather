@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.weatherproject.addcity.item.WeatherAddCityItem
-import com.example.weatherproject.addcity.model.WeatherAddCityData
-import com.example.weatherproject.addcity.viewmodel.WeatherAddCityViewModel
+import com.example.weatherproject.addcity.item.AddCityItem
+import com.example.weatherproject.addcity.model.AddCityData
+import com.example.weatherproject.addcity.viewmodel.AddCityViewModel
 import com.example.weatherproject.common.fragment.getViewModelFactory
 import com.example.weatherproject.common.navigation.NavCommand
 import com.example.weatherproject.databinding.FragmentWeatherAddCityBinding
@@ -18,15 +18,15 @@ import com.mikepenz.fastadapter.adapters.ItemAdapter
 import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
 
 
-class FragmentWeatherAddCity : Fragment() {
+class AddCityFragment : Fragment() {
 
     private var _binding: FragmentWeatherAddCityBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: WeatherAddCityViewModel by viewModels { getViewModelFactory() }
+    private val viewModel: AddCityViewModel by viewModels { getViewModelFactory() }
 
-    private val weatherAddCityItemAdapter = ItemAdapter<WeatherAddCityItem>()
-    private val fastAdapter = GenericFastAdapter.with(listOf(weatherAddCityItemAdapter))
+    private val addCityItemAdapter = ItemAdapter<AddCityItem>()
+    private val fastAdapter = GenericFastAdapter.with(listOf(addCityItemAdapter))
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,9 +58,9 @@ class FragmentWeatherAddCity : Fragment() {
         }
     }
 
-    private fun onDataLoaded(weatherAddCityData: List<WeatherAddCityData>) {
-        FastAdapterDiffUtil[weatherAddCityItemAdapter] = weatherAddCityData.map {
-            WeatherAddCityItem(it)
+    private fun onDataLoaded(addCityData: List<AddCityData>) {
+        FastAdapterDiffUtil[addCityItemAdapter] = addCityData.map {
+            AddCityItem(it)
         }
     }
 

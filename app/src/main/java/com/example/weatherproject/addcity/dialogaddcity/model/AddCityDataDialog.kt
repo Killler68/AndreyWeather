@@ -1,5 +1,5 @@
 package com.example.weatherproject.addcity.dialogaddcity.model
 
-data class DialogAddCityData(
+data class AddCityDataDialog(
     val nameCity: String
 )

@@ -1,35 +1,35 @@
 package com.example.weatherproject.addcity
 
 import androidx.lifecycle.ViewModel
-import com.example.weatherproject.addcity.usecase.WeatherAddCityRepository
-import com.example.weatherproject.addcity.repository.WeatherAddCityRepositoryImpl
+import com.example.weatherproject.addcity.usecase.AddCityRepository
+import com.example.weatherproject.addcity.repository.AddCityRepositoryImpl
 import com.example.weatherproject.addcity.router.AddCityRouterImpl
 import com.example.weatherproject.addcity.usecase.AddCityDialogNavigatorUseCaseImpl
 import com.example.weatherproject.addcity.usecase.AddCityRouter
-import com.example.weatherproject.addcity.usecase.GetWeatherAddCityUseCaseImpl
+import com.example.weatherproject.addcity.usecase.GetAddCityUseCaseImpl
 import com.example.weatherproject.addcity.usecase.MainWeatherNavigatorUseCaseImpl
 import com.example.weatherproject.addcity.viewmodel.AddCityDialogNavigatorUseCase
-import com.example.weatherproject.addcity.viewmodel.GetWeatherAddCityUseCase
+import com.example.weatherproject.addcity.viewmodel.GetAddCityUseCase
 import com.example.weatherproject.addcity.viewmodel.MainWeatherNavigatorUseCase
-import com.example.weatherproject.addcity.viewmodel.WeatherAddCityViewModel
+import com.example.weatherproject.addcity.viewmodel.AddCityViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 
 @Module
-class WeatherAddCityModule {
+class AddCityModule {
 
     @Provides
-    fun provideRepositoryWeatherAddCity(): WeatherAddCityRepository = WeatherAddCityRepositoryImpl()
+    fun provideRepositoryWeatherAddCity(): AddCityRepository = AddCityRepositoryImpl()
 
     @Provides
-    fun provideUseCaseAddCity(weatherAddCityRepository: WeatherAddCityRepository):
-            GetWeatherAddCityUseCaseImpl = GetWeatherAddCityUseCaseImpl(weatherAddCityRepository)
+    fun provideUseCaseAddCity(addCityRepository: AddCityRepository):
+            GetAddCityUseCaseImpl = GetAddCityUseCaseImpl(addCityRepository)
 
     @Provides
-    fun provideGetWeatherAddCityUseCase(WeatherAddCityRepository: WeatherAddCityRepository): GetWeatherAddCityUseCase =
-        GetWeatherAddCityUseCaseImpl(WeatherAddCityRepository)
+    fun provideGetWeatherAddCityUseCase(AddCityRepository: AddCityRepository): GetAddCityUseCase =
+        GetAddCityUseCaseImpl(AddCityRepository)
 
     @Provides
     fun provideAddCityRouter(): AddCityRouter = AddCityRouterImpl()
@@ -45,14 +45,14 @@ class WeatherAddCityModule {
 
     @Provides
     @IntoMap
-    @ClassKey(WeatherAddCityViewModel::class)
+    @ClassKey(AddCityViewModel::class)
     fun getViewModelWeatherAddCity(
-        getWeatherAddCityUseCaseImpl: GetWeatherAddCityUseCase,
+        getAddCityUseCaseImpl: GetAddCityUseCase,
         navigateToAddCityDialogUseCase: AddCityDialogNavigatorUseCase,
         navigateToMainWeatherUseCase: MainWeatherNavigatorUseCase
     ): ViewModel {
-        return WeatherAddCityViewModel(
-            getWeatherAddCityUseCaseImpl,
+        return AddCityViewModel(
+            getAddCityUseCaseImpl,
             navigateToAddCityDialogUseCase,
             navigateToMainWeatherUseCase
         )

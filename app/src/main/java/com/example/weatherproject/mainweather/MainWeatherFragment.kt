@@ -25,7 +25,7 @@ import com.mikepenz.fastadapter.adapters.ItemAdapter
 import com.mikepenz.fastadapter.diff.FastAdapterDiffUtil
 
 
-class FragmentMainWeather : Fragment() {
+class MainWeatherFragment : Fragment() {
 
     private var _binding: FragmentMainWeatherBinding? = null
     private val binding get() = _binding!!

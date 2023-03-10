@@ -6,11 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.weatherproject.R
-import com.example.weatherproject.addcity.dialogaddcity.item.DialogAddCityItem
-import com.example.weatherproject.addcity.dialogaddcity.model.DialogAddCityData
-import com.example.weatherproject.addcity.item.WeatherAddCityItem
-import com.example.weatherproject.addcity.model.WeatherAddCityData
-import com.example.weatherproject.databinding.FragmentDialogAddCityBinding
+import com.example.weatherproject.addcity.dialogaddcity.model.AddCityDataDialog
 import com.example.weatherproject.databinding.FragmentDialogWeatherChangeCityBinding
 import com.example.weatherproject.mainweather.changecity.item.DialogWeatherChangeCityItem
 import com.mikepenz.fastadapter.GenericFastAdapter
@@ -39,7 +35,7 @@ class FragmentDialogWeatherChangeCity : DialogFragment() {
             adapter = fastAdapter
             itemAnimator = null
         }
-        FastAdapterDiffUtil[dialogAddCityItemAdapter] = testDialogAddCityData
+        FastAdapterDiffUtil[dialogAddCityItemAdapter] = testAddCityDataDialog
         binding.btnCancelChangeCityDialog.setOnClickListener {
             dismiss()
         }
@@ -48,9 +44,9 @@ class FragmentDialogWeatherChangeCity : DialogFragment() {
 
 }
 
-private val testDialogAddCityData = listOf(
-    DialogWeatherChangeCityItem(DialogAddCityData("Москва")),
-    DialogWeatherChangeCityItem(DialogAddCityData("Санкт-Петербург")),
-    DialogWeatherChangeCityItem(DialogAddCityData("Тамбов")),
-    DialogWeatherChangeCityItem(DialogAddCityData("Воронеж"))
+private val testAddCityDataDialog = listOf(
+    DialogWeatherChangeCityItem(AddCityDataDialog("Москва")),
+    DialogWeatherChangeCityItem(AddCityDataDialog("Санкт-Петербург")),
+    DialogWeatherChangeCityItem(AddCityDataDialog("Тамбов")),
+    DialogWeatherChangeCityItem(AddCityDataDialog("Воронеж"))
 )
