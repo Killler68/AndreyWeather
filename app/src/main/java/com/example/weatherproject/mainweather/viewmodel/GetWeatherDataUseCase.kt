@@ -1,4 +1,4 @@
-package com.example.weatherproject.mainweather.usecase
+package com.example.weatherproject.mainweather.viewmodel
 
 import com.example.weatherproject.mainweather.model.WeatherData
 import io.reactivex.Single

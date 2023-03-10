@@ -3,7 +3,7 @@ package com.example.weatherproject.mainweather.usecase
 import com.example.weatherproject.mainweather.dateFormatUnixTimePreview
 import com.example.weatherproject.mainweather.model.WeatherPreviewData
 import com.example.weatherproject.mainweather.model.toWeatherPreviewData
-import com.example.weatherproject.mainweather.repository.MainWeatherPreviewRepository
+import com.example.weatherproject.mainweather.viewmodel.GetWeatherPreviewDataUseCase
 import io.reactivex.Single
 
 class GetWeatherPreviewDataUseCaseImpl(

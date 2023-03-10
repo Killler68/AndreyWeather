@@ -3,14 +3,12 @@ package com.example.weatherproject.mainweather
 import androidx.lifecycle.ViewModel
 import com.example.weatherproject.common.api.WeatherApi
 import com.example.weatherproject.common.network.NetworkModule
-import com.example.weatherproject.mainweather.repository.MainWeatherPreviewRepository
-import com.example.weatherproject.mainweather.repository.MainWeatherRepository
+import com.example.weatherproject.mainweather.usecase.MainWeatherPreviewRepository
+import com.example.weatherproject.mainweather.usecase.MainWeatherRepository
 import com.example.weatherproject.mainweather.repository.MainWeatherRepositoryImpl
 import com.example.weatherproject.mainweather.router.MainWeatherRouterImpl
 import com.example.weatherproject.mainweather.usecase.*
-import com.example.weatherproject.mainweather.viewmodel.AddCityNavigatorUseCase
-import com.example.weatherproject.mainweather.viewmodel.ChangeCityDialogNavigatorUseCase
-import com.example.weatherproject.mainweather.viewmodel.MainWeatherViewModel
+import com.example.weatherproject.mainweather.viewmodel.*
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.ClassKey

@@ -4,7 +4,7 @@ import com.example.weatherproject.mainweather.dateFormatUnixTime
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.example.weatherproject.mainweather.model.WeatherOverTimeData
 import com.example.weatherproject.mainweather.model.toWeatherData
-import com.example.weatherproject.mainweather.repository.MainWeatherRepository
+import com.example.weatherproject.mainweather.viewmodel.GetWeatherDataUseCase
 import io.reactivex.Single
 
 class GetWeatherDataUseCaseImpl(

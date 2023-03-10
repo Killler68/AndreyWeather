@@ -1,4 +1,4 @@
-package com.example.weatherproject.mainweather.repository
+package com.example.weatherproject.mainweather.usecase
 
 import com.example.weatherproject.mainweather.model.WeatherOverTimeData
 import io.reactivex.Single

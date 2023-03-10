@@ -7,8 +7,6 @@ import com.example.weatherproject.common.navigation.NavCommand
 import com.example.weatherproject.common.rx.plusAssign
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.example.weatherproject.mainweather.model.WeatherPreviewData
-import com.example.weatherproject.mainweather.usecase.GetWeatherDataUseCase
-import com.example.weatherproject.mainweather.usecase.GetWeatherPreviewDataUseCase
 import io.reactivex.disposables.CompositeDisposable
 
 class MainWeatherViewModel(
