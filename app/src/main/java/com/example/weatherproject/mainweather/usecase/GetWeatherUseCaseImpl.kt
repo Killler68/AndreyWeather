@@ -4,12 +4,12 @@ import com.example.weatherproject.common.extensions.dateFormatUnixTime
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.example.weatherproject.mainweather.model.WeatherOverTimeData
 import com.example.weatherproject.mainweather.model.toWeatherData
-import com.example.weatherproject.mainweather.viewmodel.GetWeatherDataUseCase
+import com.example.weatherproject.mainweather.viewmodel.GetWeatherUseCase
 import io.reactivex.Single
 
-class GetWeatherDataUseCaseImpl(
+class GetWeatherUseCaseImpl(
     private val mainWeatherRepository: MainWeatherRepository
-) : GetWeatherDataUseCase {
+) : GetWeatherUseCase {
 
     private val weatherDays = mutableMapOf<String, MutableList<WeatherOverTimeData>>()
 

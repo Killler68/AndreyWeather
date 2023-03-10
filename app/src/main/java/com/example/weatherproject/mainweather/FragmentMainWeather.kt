@@ -54,9 +54,9 @@ class FragmentMainWeather : Fragment() {
 
     private fun setupObservables() {
         with(viewModel) {
-            resultWeatherWeek.observe(viewLifecycleOwner, ::onDataLoaded)
+            weatherWeek.observe(viewLifecycleOwner, ::onDataLoaded)
             loadWeatherWeekAndOverTime()
-            resultWeatherPreview.observe(viewLifecycleOwner, ::onDataLoadedPreview)
+            weatherPreview.observe(viewLifecycleOwner, ::onDataLoadedPreview)
             loadWeatherPreview()
             internetError.observe(viewLifecycleOwner) { toast(it) }
             navCommand.observe(viewLifecycleOwner, ::onDataLoadedNavigate)

@@ -33,13 +33,13 @@ class MainWeatherModule {
     fun weatherEventBus() = BehaviorSubject.create<Int>()
 
     @Provides
-    fun provideUseCase(mainWeatherRepository: MainWeatherRepository): GetWeatherDataUseCase =
-        GetWeatherDataUseCaseImpl(mainWeatherRepository)
+    fun provideUseCase(mainWeatherRepository: MainWeatherRepository): GetWeatherUseCase =
+        GetWeatherUseCaseImpl(mainWeatherRepository)
 
     @Provides
     fun providePreviewUseCase(mainWeatherPreviewRepository: MainWeatherPreviewRepository):
-            GetWeatherPreviewDataUseCase =
-        GetWeatherPreviewDataUseCaseImpl(mainWeatherPreviewRepository)
+            GetWeatherPreviewUseCase =
+        GetWeatherPreviewUseCaseImpl(mainWeatherPreviewRepository)
 
     @Provides
     fun provideMainWeatherRouter(): MainWeatherRouter = MainWeatherRouterImpl()
@@ -57,14 +57,14 @@ class MainWeatherModule {
     @IntoMap
     @ClassKey(MainWeatherViewModel::class)
     fun getViewModelMainWeather(
-        getWeatherDataUseCase: GetWeatherDataUseCase,
-        getWeatherPreviewDataUseCase: GetWeatherPreviewDataUseCase,
+        getWeatherUseCase: GetWeatherUseCase,
+        getWeatherPreviewUseCase: GetWeatherPreviewUseCase,
         navigateToChangeCityDialogUseCase: ChangeCityDialogNavigatorUseCase,
         navigateToAddCityUseCase: AddCityNavigatorUseCase
     ): ViewModel {
         return MainWeatherViewModel(
-            getWeatherDataUseCase,
-            getWeatherPreviewDataUseCase,
+            getWeatherUseCase,
+            getWeatherPreviewUseCase,
             navigateToChangeCityDialogUseCase,
             navigateToAddCityUseCase
         )

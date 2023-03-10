@@ -3,12 +3,12 @@ package com.example.weatherproject.mainweather.usecase
 import com.example.weatherproject.common.extensions.dateFormatUnixTimePreview
 import com.example.weatherproject.mainweather.model.WeatherPreviewData
 import com.example.weatherproject.mainweather.model.toWeatherPreviewData
-import com.example.weatherproject.mainweather.viewmodel.GetWeatherPreviewDataUseCase
+import com.example.weatherproject.mainweather.viewmodel.GetWeatherPreviewUseCase
 import io.reactivex.Single
 
-class GetWeatherPreviewDataUseCaseImpl(
+class GetWeatherPreviewUseCaseImpl(
     private val mainWeatherPreviewRepository: MainWeatherPreviewRepository
-) : GetWeatherPreviewDataUseCase {
+) : GetWeatherPreviewUseCase {
 
     private val weatherPreview = mutableMapOf<String, MutableList<WeatherPreviewData>>()
 
