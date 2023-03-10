@@ -24,11 +24,7 @@ class AddCityModule {
     fun provideRepositoryWeatherAddCity(): AddCityRepository = AddCityRepositoryImpl()
 
     @Provides
-    fun provideUseCaseAddCity(addCityRepository: AddCityRepository):
-            GetAddCityUseCaseImpl = GetAddCityUseCaseImpl(addCityRepository)
-
-    @Provides
-    fun provideGetWeatherAddCityUseCase(AddCityRepository: AddCityRepository): GetAddCityUseCase =
+    fun provideGetAddCityUseCase(AddCityRepository: AddCityRepository): GetAddCityUseCase =
         GetAddCityUseCaseImpl(AddCityRepository)
 
     @Provides
