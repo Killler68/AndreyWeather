@@ -15,6 +15,7 @@ import com.example.weatherproject.common.extensions.dateFormatPreview
 import com.example.weatherproject.common.extensions.imageWeather
 import com.example.weatherproject.common.fragment.getViewModelFactory
 import com.example.weatherproject.common.navigation.NavCommand
+import com.example.weatherproject.common.string.ERROR_MESSAGE
 import com.example.weatherproject.databinding.FragmentMainWeatherBinding
 import com.example.weatherproject.mainweather.item.WeatherItem
 import com.example.weatherproject.mainweather.model.WeatherData
@@ -44,21 +45,19 @@ class MainWeatherFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        with(binding.recyclerViewWeather) {
-            adapter = fastAdapter
-            itemAnimator = null
-        }
+
         setupObservables()
         setupListeners()
+        setupFastAdapter()
+        viewModel.loadWeatherWeekAndOverTime()
+        viewModel.loadWeatherPreview()
     }
 
     private fun setupObservables() {
         with(viewModel) {
             weatherWeek.observe(viewLifecycleOwner, ::onDataLoaded)
-            loadWeatherWeekAndOverTime()
             weatherPreview.observe(viewLifecycleOwner, ::onDataLoadedPreview)
-            loadWeatherPreview()
-            internetError.observe(viewLifecycleOwner) { toast(it) }
+            internetError.observe(viewLifecycleOwner) { toast(ERROR_MESSAGE) }
             navCommand.observe(viewLifecycleOwner, ::onDataLoadedNavigate)
         }
     }
@@ -92,6 +91,13 @@ class MainWeatherFragment : Fragment() {
         }
         binding.btnSearch.setOnClickListener {
             viewModel.toChangeCity()
+        }
+    }
+
+    private fun setupFastAdapter() {
+        with(binding.recyclerViewWeather) {
+            adapter = fastAdapter
+            itemAnimator = null
         }
     }
 
