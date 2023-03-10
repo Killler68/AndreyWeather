@@ -1,8 +1,8 @@
 package com.example.weatherproject.mainweather.changecity.usecase
 
-import com.example.weatherproject.addcity.dialogaddcity.model.AddCityDataDialog
+import com.example.weatherproject.common.models.CityDialogData
 
 interface ChangeCityDialogRepository {
 
-    fun getChangeCity(): List<AddCityDataDialog>
+    fun getChangeCity(): List<CityDialogData>
 }

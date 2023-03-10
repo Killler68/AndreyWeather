@@ -1,8 +1,8 @@
-package com.example.weatherproject.mainweather.changecity.viewmodel
+package com.example.weatherproject.addcity.addcitydialog.viewmodel
 
 import com.example.weatherproject.common.models.CityDialogData
 
-interface ChangeCityDialogUseCase {
+interface AddCityDialogUseCase {
 
     operator fun invoke(): List<CityDialogData>
 }

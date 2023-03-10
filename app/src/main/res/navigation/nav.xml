@@ -41,7 +41,7 @@
     </fragment>
     <dialog
         android:id="@+id/fragmentDialogAddCity"
-        android:name="com.example.weatherproject.addcity.dialogaddcity.DialogAddCityFragment"
+        android:name="com.example.weatherproject.addcity.addcitydialog.AddCityDialogFragment"
         android:label="FragmentDialogWeatherAddCity">
         <action
             android:id="@+id/dialog_add_city_to_weather_add_city"
