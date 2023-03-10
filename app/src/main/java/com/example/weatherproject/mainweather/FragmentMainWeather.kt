@@ -10,6 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.weatherproject.R
 import com.example.weatherproject.common.context.toast
+import com.example.weatherproject.common.extensions.TIME_FORMAT
+import com.example.weatherproject.common.extensions.dateFormatPreview
+import com.example.weatherproject.common.extensions.imageWeather
 import com.example.weatherproject.common.fragment.getViewModelFactory
 import com.example.weatherproject.common.navigation.NavCommand
 import com.example.weatherproject.databinding.FragmentMainWeatherBinding

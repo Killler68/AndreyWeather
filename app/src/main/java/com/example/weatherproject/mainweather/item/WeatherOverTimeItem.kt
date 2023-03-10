@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.weatherproject.R
 import com.example.weatherproject.databinding.RecyclerItemWeatherTimeOverBinding
-import com.example.weatherproject.mainweather.TIME_FORMAT
-import com.example.weatherproject.mainweather.dateFormatHours
-import com.example.weatherproject.mainweather.imageWeather
+import com.example.weatherproject.common.extensions.TIME_FORMAT
+import com.example.weatherproject.common.extensions.dateFormatHours
+import com.example.weatherproject.common.extensions.imageWeather
 import com.example.weatherproject.mainweather.model.WeatherOverTimeData
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 

@@ -1,4 +1,4 @@
-package com.example.weatherproject.common.activity
+package com.example.weatherproject.common.extensions
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.example.weatherproject.mainweather
+package com.example.weatherproject.common.extensions
 
 import com.example.weatherproject.R
 

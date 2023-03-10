@@ -1,7 +1,6 @@
-package com.example.weatherproject.mainweather
+package com.example.weatherproject.common.extensions
 
 import android.annotation.SuppressLint
-import com.example.weatherproject.mainweather.model.WeatherOverTimeData
 import java.text.SimpleDateFormat
 import java.util.*
 

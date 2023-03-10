@@ -1,6 +1,6 @@
 package com.example.weatherproject.mainweather.usecase
 
-import com.example.weatherproject.mainweather.dateFormatUnixTime
+import com.example.weatherproject.common.extensions.dateFormatUnixTime
 import com.example.weatherproject.mainweather.model.WeatherData
 import com.example.weatherproject.mainweather.model.WeatherOverTimeData
 import com.example.weatherproject.mainweather.model.toWeatherData
